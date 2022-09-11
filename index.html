@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>memorize tris</title>
+		<meta charset="utf-8">
+		<style type="text/css">
+		.correct {
+			visibility: hidden;
+		}
+		input {
+			border: thin solid lightgrey;
+		}
+		span {
+			border: dotted thin grey;
+		}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+		<script>
+		const check = (id1, id2, id3) => {
+			const q = `#${ id1 }`
+			const answer = $(q).text(); console.log(answer)
+
+			const a = `#${ id2 }`
+			const response = $(a).val(); console.log(response)
+
+			const assessment = `#${ id3 }`
+			answer.toLowerCase() === response.toLowerCase() ?
+				$(assessment).text('correct!') :
+				tryAgain(q, assessment)
+		}
+
+		tryAgain = (q, assessment) => {
+			$(assessment).text('try again')
+			$(q).css('visibility', 'visible')
+		}
+		</script>
+	</head>
+	<body>
+		<table style="border: thin solid #000000">
+			<tr>
+				<th><span id="Q1" class="correct">1 Corinthians 13:4-8</th>
+				<th><input id="A1" type="text" onblur="check('Q1', 'A1', 'R1');"></th>
+				<th><span id="R1">?</span></th>
+			</tr>
+			<tr>
+				<td>
+			</tr>
+		</table>
+	</body>
+</html>
