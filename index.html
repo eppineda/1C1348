@@ -4,7 +4,7 @@
 		<title>memorize tris</title>
 		<meta charset="utf-8">
 		<style type="text/css">
-		.correct {
+		.answers {
 			visibility: hidden;
 		}
 		input {
@@ -12,6 +12,12 @@
 		}
 		span {
 			border: dotted thin grey;
+		}
+		tr.even {
+			background-color: #ffffff;
+		}
+		tr.odd {
+			background-color: lightgrey;
 		}
 		</style>
 		<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
@@ -25,7 +31,7 @@
 
 			const assessment = `#${ id3 }`
 			answer.toLowerCase() === response.toLowerCase() ?
-				$(assessment).text('correct!') :
+				$(assessment).text('answers!') :
 				tryAgain(q, assessment)
 		}
 
@@ -37,14 +43,16 @@
 	</head>
 	<body>
 		<table style="border: thin solid #000000">
-			<tr>
-				<th><span id="Q1" class="correct">1 Corinthians 13:4-8</th>
+			<tr class="even">
+				<th><span id="Q1" class="answers">1 Corinthians 13:4-8</th>
 				<th><input id="A1" type="text" onblur="check('Q1', 'A1', 'R1');"></th>
 				<th><span id="R1">?</span></th>
 			</tr>
-			<tr>
-				<td>
+			<tr class="odd">
+				<td id="Q2" class="answers">Love is patient, love is kind.</td>
+				<td><input id="A2" type="text" onblur="check('Q2', 'A2', 'R2');"></td>
+				<td id="R2">?</td>
 			</tr>
-		</table>
+		</tabl>
 	</body>
 </html>
